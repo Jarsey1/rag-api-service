@@ -1,6 +1,22 @@
+version: '3.8'
+
 services:
   backend:
     build: .
     ports:
       - "8000:8000"
+    depends_on:
+      - qdrant
+    environment:
+      - QDRANT_URL=http://qdrant:6333
     restart: always
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    # Ports removed for security; only reachable by the backend container
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: always
+
+volumes:
+  qdrant_data:
