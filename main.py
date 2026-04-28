@@ -4,7 +4,7 @@ from qdrant_client import QdrantClient
 
 app = FastAPI()
 
-# This uses the environment variable 'QDRANT_URL'  Testing the webhook
+# This uses the environment variable 'QDRANT_URL'  Testing the webhook Jarsey
 # We defined this in your docker-compose.yml as 'http://qdrant:6333'
 QDRANT_URL = os.getenv("QDRANT_URL", "http://qdrant:6333")
 
